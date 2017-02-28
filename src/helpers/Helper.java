@@ -73,7 +73,6 @@ public class Helper {
         try {
            Date date = dateFormat.parse(br.readLine());
             dateFormat.format(new Date());
-            System.out.println(date);
             return date;
 
         }
