@@ -3,6 +3,9 @@ package helpers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class Helper {
@@ -63,4 +66,20 @@ public class Helper {
         return getYear(br);}
     }
 
+
+    public static Date validateDate(BufferedReader br) {
+        String pattern = "dd.MM.yyyy";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+        try {
+           Date date = dateFormat.parse(br.readLine());
+            dateFormat.format(new Date());
+            System.out.println(date);
+            return date;
+
+        }
+         catch (IOException | ParseException e) {
+            System.out.println("Please enter a date in the format dd.MM.yyyy");
+            return validateDate(br);
+        }
+    }
 }
